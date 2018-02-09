@@ -40,7 +40,7 @@ var gameImg = [
 	{path:url+'img/again.png',type:'img',name:'again'},//再玩一次
 	{path:url+'img/scoreBkg.png',type:'img',name:'scoreBkg'},//得分背景
 	{path:url+'img/a.png',type:'img',name:'a'},//答案背景
-	{path:url+'img/a1.png',type:'img',name:'a'},//答案背景
+	{path:url+'img/a1.png',type:'img',name:'a1'},//答案背景
 	{path:url+'img/b.png',type:'img',name:'b'},//答案背景
 	{path:url+'img/b1.png',type:'img',name:'b1'},//答案背景
 	{path:url+'img/c.png',type:'img',name:'c'},//答案背景
@@ -48,6 +48,7 @@ var gameImg = [
 	{path:url+'img/d.png',type:'img',name:'d'},//答案背景
 	{path:url+'img/d1.png',type:'img',name:'d1'},//答案背景
 	{path:url+'img/questionBkg.jpg',type:'img',name:'questionBkg'},//问题背景
+	{path:url+'img/titleBkg.png',type:'img',name:'titleBkg'},//问题背景
 ];
 //全局变量
 var backLayer,imgList;
