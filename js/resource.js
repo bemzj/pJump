@@ -26,6 +26,28 @@ var gameImg = [
 	{path:url+'img/homeBtn01.png',type:'img',name:'homeBtn01'},//首页按钮1
 	{path:url+'img/homeBtn02.png',type:'img',name:'homeBtn02'},//首页按钮2
 	{path:url+'img/dog.png',type:'img',name:'dog'},//狗
+	{path:url+'img/backhome.png',type:'img',name:'backhome'},//返回首页
+	{path:url+'img/nochange.png',type:'img',name:'nochange'},//没有机会
+	{path:url+'img/rules.jpg',type:'img',name:'rules'},//规则页面
+	{path:url+'img/start.png',type:'img',name:'start'},//开始游戏
+	{path:url+'img/ruleDog.png',type:'img',name:'ruleDog'},//规则狗
+	{path:url+'img/rulePeople.png',type:'img',name:'rulePeople'},//规则人
+	{path:url+'img/answerPeople.png',type:'img',name:'answerPeople'},//规则人
+	{path:url+'img/answer.png',type:'img',name:'answer'},//规则人
+	{path:url+'img/invitation.png',type:'img',name:'invitation'},//邀请
+	{path:url+'img/overShow.png',type:'img',name:'overShow'},//规则人
+	{path:url+'img/shareFriend.png',type:'img',name:'shareFriend'},//分享给好友
+	{path:url+'img/again.png',type:'img',name:'again'},//再玩一次
+	{path:url+'img/scoreBkg.png',type:'img',name:'scoreBkg'},//得分背景
+	{path:url+'img/a.png',type:'img',name:'a'},//答案背景
+	{path:url+'img/a1.png',type:'img',name:'a'},//答案背景
+	{path:url+'img/b.png',type:'img',name:'b'},//答案背景
+	{path:url+'img/b1.png',type:'img',name:'b1'},//答案背景
+	{path:url+'img/c.png',type:'img',name:'c'},//答案背景
+	{path:url+'img/c1.png',type:'img',name:'c1'},//答案背景
+	{path:url+'img/d.png',type:'img',name:'d'},//答案背景
+	{path:url+'img/d1.png',type:'img',name:'d1'},//答案背景
+	{path:url+'img/questionBkg.jpg',type:'img',name:'questionBkg'},//问题背景
 ];
 //全局变量
 var backLayer,imgList;

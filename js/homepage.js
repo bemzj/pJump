@@ -1,5 +1,7 @@
 //首页
 function homepage(lTime){
+	backLayer.removeAllChild();
+	backLayer.die();
 	//首页
 	var homeLayer = new LSprite(); 
 	backLayer.addChild(homeLayer);
@@ -166,6 +168,7 @@ function homepage(lTime){
 //		var d = JSON.parse(data["0"].content);
 //		console.log(d);
 //	},'JSON');
+	
 }
 //纸屑
 function paper(x,time){

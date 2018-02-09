@@ -23,7 +23,7 @@ function startGame(result){
 		stepWord= null;
 		process= null;
 		lLayer.remove();
-		homepage(10);
-		
+//		homepage(10);
+		problem();
 	}
 }

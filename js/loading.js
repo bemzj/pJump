@@ -8,7 +8,6 @@ function loadImging(result){
 	//文字
 	wordText = new setText(258,612,30,"LOADING.","#ffffff",false,'wd');
 	lLayer.addChild(wordText);
-	console.log();
 	//步数
     var list = LGlobal.divideCoordinate(628,284,1,4);
     var data = new LBitmapData(result['step'],0,0,157,284);
@@ -21,7 +20,14 @@ function loadImging(result){
 	loadLayer.graphics.drawRoundRect(0, "#000000", [100, 570, 0, 24, 12], true, "#ffbd0a");
     lLayer.addChild(loadLayer);
 	LLoadManage.load(gameImg,loadProgress,startGame);
-	
+	//文字
+	var wordText1 = new setText(0,700,30,"小伙伴们太热情了，福袋装不下啦，","#ffffff",false,'wd');
+	wordText1.x = rCenterWidth(wordText1);
+	lLayer.addChild(wordText1);
+	//文字
+	var wordText2 = new setText(0,745,30,"请稍后再来。","#ffffff",false,'wd');
+	wordText2.x = rCenterWidth(wordText2);
+	lLayer.addChild(wordText2);
 }
 //人在跑
 function onframe(){
