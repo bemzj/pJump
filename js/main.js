@@ -16,7 +16,7 @@ function startGame(result){
 	{
 		//情况回收
 		backLayer.removeEventListener(LEvent.ENTER_FRAME);
-		LTweenLite.pauseAll();
+		LTweenLite.removeAll();
 		loadLayer.die();
 		wordText = null;
 		step = null;
@@ -25,7 +25,7 @@ function startGame(result){
 		stepWord= null;
 		process= null;
 		lLayer.remove();
-//		homepage(10);
-		problem();
+		homepage(10);
+//		problem();
 	}
 }

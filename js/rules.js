@@ -2,7 +2,7 @@
 function showRule(){
 	backLayer.removeAllChild();
 	backLayer.die();
-	LTweenLite.pauseAll();
+	LTweenLite.removeAll();
 	//规则层
 	var rLayer = new LSprite(); 
 	backLayer.addChild(rLayer);
@@ -43,10 +43,26 @@ function showRule(){
 	start.y = 984;
 	rLayer.addChild(start);
 	bigAndSmall(start,2,2,1,0.02,0,true);
-	start.addEventListener(LMouseEvent.MOUSE_DOWN,function(){
-		LTweenLite.pauseAll();
+	start.addEventListener(LMouseEvent.MOUSE_DOWN,function(){		
 		//开始游戏点击事件
 		start.removeEventListener(LMouseEvent.MOUSE_DOWN);
-		rLayer.remove();
+		LTweenLite.removeAll();
+		$.get('json/hasChange.json',function(data){
+			//已经玩过跳一跳，可以获取机会
+			if(data.has==2)
+			{
+				gameOver();
+			}else if(data.has==1)
+			{
+				//直接玩跳一跳
+				rLayer.remove();
+				backLayer.removeAllChild();
+				backLayer.die();
+				score(100);
+			}else{
+				//没有机会
+				noChange();
+			}
+		});
 	});
 }

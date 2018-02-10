@@ -62,6 +62,7 @@ var gameImg = [
 //全局变量
 var backLayer,imgList;
 var lLayer,wordText,step,loadLayer,stepNumber=0,stepWord=0,process=0;
+var maxscore;
 //微信头像
 var wxurl = 'img/wxhead.jpg';
 var wxname = "梓+";

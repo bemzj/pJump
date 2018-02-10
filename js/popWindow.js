@@ -34,7 +34,7 @@ function noChange(){
 	noLayer.addEventListener(LMouseEvent.MOUSE_DOWN,function(){
 		noLayer.die();
 		noLayer.remove();
-		LTweenLite.pauseAll();
+		LTweenLite.removeAll();
 		backLayer.removeAllChild();
 		backLayer.die();
 		homepage();
@@ -75,8 +75,10 @@ function gameOver(){
 	answer.addEventListener(LMouseEvent.MOUSE_DOWN,function(){
 		gLayer.die();
 		gLayer.remove();
+		LTweenLite.removeAll();
 		backLayer.removeAllChild();
 		backLayer.die();
+		problemRules();
 	});
 	//邀请
 	var invitation = getButton(imgList['invitation']);
@@ -132,25 +134,29 @@ function score(s){
 	sLayer.addChild(again);
 	bigAndSmall(again,2,2,1,0.02,0,true);
 	again.addEventListener(LMouseEvent.MOUSE_DOWN,function(){
-		$.get('json/number.json',function(data){
-			//没有填写信息
-			if(data.number==1)
+		again.removeEventListener(LMouseEvent.MOUSE_DOWN);
+		//没有填写信息
+		$.get('json/message.json',function(data){
+			if(data.has==1)
 			{
 				$('#mg').show();
-			}else if(data.number==2){
+			}
+		});
+		$.get('json/number.json',function(data){			
+			if(data.number==1){
 				//答题页面
 				sLayer.die();
 				sLayer.remove();
-				LTweenLite.pauseAll();
+				LTweenLite.removeAll();
 				gameOver();
 			}else{
 				//没有机会
 				sLayer.die();
 				sLayer.remove();
-				LTweenLite.pauseAll();
+				LTweenLite.removeAll();
 				noChange();
 			}
-		})
+		});
 		
 	});
 	//分享
@@ -160,4 +166,88 @@ function score(s){
 	sLayer.addChild(shareFriend);
 	bigAndSmall(shareFriend,2,2,1,0.02,0,true);
 	shareFriend.addEventListener(LMouseEvent.MOUSE_DOWN,sharing);
+}
+//弹窗
+function sorry(){
+	var noLayer = new LSprite();
+	noLayer.graphics.drawRect(0, "#000000", [0, 0, 750, 1207], true, "rgba(0,0,0,0.5)");
+	backLayer.addChild(noLayer);
+	noLayer.addEventListener(LMouseEvent.MOUSE_DOWN,setNull);
+	//分享语
+	var nochange = getBitmap(imgList['nochange']);
+	nochange.y = rCenterHeight(nochange);
+	nochange.x = rCenterWidth(nochange);
+	noLayer.addChild(nochange);
+	//哭
+	var cry = getBitmap(imgList['cry']);
+	cry.y = 315;
+	cry.x = rCenterWidth(cry);
+	noLayer.addChild(cry);
+	//文字1
+	var wordText1 = new setText(0,538,30,"哎呀~","#ffffff",false,'wd');
+	wordText1.x = rCenterWidth(wordText1);
+	noLayer.addChild(wordText1);
+	//文字2
+	var wordText2 = new setText(0,588,30,"很抱歉！","#ffffff",false,'wd');
+	wordText2.x = rCenterWidth(wordText2);
+	noLayer.addChild(wordText2);
+	//文字3
+	var wordText3 = new setText(0,640,30,"您没有答对一道题！","#ffffff",false,'wd');
+	wordText3.x = rCenterWidth(wordText3);
+	noLayer.addChild(wordText3);
+	//返回首页
+	var backhome = getButton(imgList['backhome']);
+	backhome.x = rCenterWidth(backhome);
+	backhome.y = 725;
+	noLayer.addChild(backhome);
+	noLayer.addEventListener(LMouseEvent.MOUSE_DOWN,function(){
+		noLayer.die();
+		noLayer.remove();
+		LTweenLite.removeAll();
+		backLayer.removeAllChild();
+		backLayer.die();
+		homepage();
+	});
+}
+//获得机会
+function pop(n,m){
+	var noLayer = new LSprite();
+	noLayer.graphics.drawRect(0, "#000000", [0, 0, 750, 1207], true, "rgba(0,0,0,0.5)");
+	backLayer.addChild(noLayer);
+	noLayer.addEventListener(LMouseEvent.MOUSE_DOWN,setNull);
+	//分享语
+	var nochange = getBitmap(imgList['nochange']);
+	nochange.y = rCenterHeight(nochange);
+	nochange.x = rCenterWidth(nochange);
+	noLayer.addChild(nochange);
+	//哭
+	var cry = getBitmap(imgList['rulePeople']);
+	cry.y = 315;
+	cry.x = rCenterWidth(cry);
+	noLayer.addChild(cry);
+	//文字1
+	var wordText1 = new setText(0,538,30,"恭喜您","#ffffff",false,'wd');
+	wordText1.x = rCenterWidth(wordText1);
+	noLayer.addChild(wordText1);
+	//文字2
+	var wordText2 = new setText(0,588,30,"您总共答对"+n+"道题","#ffffff",false,'wd');
+	wordText2.x = rCenterWidth(wordText2);
+	noLayer.addChild(wordText2);
+	//文字3
+	var wordText3 = new setText(0,640,30,"共获得"+m+"次机会","#ffffff",false,'wd');
+	wordText3.x = rCenterWidth(wordText3);
+	noLayer.addChild(wordText3);
+	//返回首页
+	var backhome = getButton(imgList['backhome']);
+	backhome.x = rCenterWidth(backhome);
+	backhome.y = 725;
+	noLayer.addChild(backhome);
+	noLayer.addEventListener(LMouseEvent.MOUSE_DOWN,function(){
+		noLayer.die();
+		noLayer.remove();
+		LTweenLite.removeAll();
+		backLayer.removeAllChild();
+		backLayer.die();
+		homepage();
+	});
 }

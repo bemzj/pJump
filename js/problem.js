@@ -1,7 +1,7 @@
 function problemRules(){
 	backLayer.removeAllChild();
 	backLayer.die();
-	LTweenLite.pauseAll()
+	LTweenLite.removeAll();
 	//规则层
 	var rLayer = new LSprite(); 
 	backLayer.addChild(rLayer);
@@ -28,7 +28,7 @@ function problemRules(){
 		start.removeEventListener(LMouseEvent.MOUSE_DOWN);
 		backLayer.removeAllChild();
 		backLayer.die();
-		LTweenLite.pauseAll();
+		LTweenLite.removeAll();
 		problem();
 	});
 }
@@ -41,21 +41,131 @@ function problem(){
 	//添加背景
 	var back = getBitmap(imgList['questionBkg']);
 	pLayer.addChild(back);
-	//答案
-	var anTitle = "";
-	var ans = [];
+	//答题层
+	var qLayer = new LSprite();
+	pLayer.addChild(qLayer);
+	//答案	
 	$.get('http://wmgj.hengdikeji.com/index.php/index/index/test.html',function(data){
-		var d = JSON.parse(data["0"].content);
-		var k = 0;
-		anTitle = d[k].title;
-		var inputs=d[k].input;
-		for(i in inputs){
-			ans[i]=new answers(inputs[i].val,parseInt(i)+1);
-			ans[i].x = rCenterWidth(ans[i]);
-			ans[i].y = 500 + i*110;
-			pLayer.addChild(ans[i]);
-		}
+		//时间
+		var time = new setText(0,538,30,"时间：10s","#ff3530",false,'wd');
+		time.x = 88;
+		time.y = 115;
+		pLayer.addChild(time);
+		var timeCount = 10;
+		var timeTween
+		timeTween = LTweenLite.to(time,1.0,{loop:true,onStart:function(){
+			
+			if(timeCount==-1)
+			{
+				LTweenLite.removeAll();
+				//答题时间结束
+				if(maxscore==0)
+				{
+					sorry();
+				}else{
+					//获得机会次数
+					$.get('json/change.json',function(data){
+						pop(maxscore,data.change);
+					});
+				}
+			}else{
+				time.childList["0"].text = "时间："+timeCount+"s";
+				timeCount--;
+			}
+		}});
+		maxscore = 0;
+		qt(qLayer,0,data,true,timeTween);
 	},'JSON');
+}
+
+function qt(layer,k,data,aOpen,tw){
+	var anTitle;
+	var ans = [];
+	var anq;
+	var rightQ = -1;
+	var ansOpen = aOpen;
+	tw.resume();
+	//题号
+	anTitle = new titles(k+1);
+	anTitle.x = rCenterWidth(anTitle);
+	anTitle.y = 160;
+	layer.addChild(anTitle);
+	var d = JSON.parse(data[k].content);
+	//题目
+	anq = new setWrapText(0,280,36,d["0"].title,"#000000",false,480,true,68,'wd');
+	anq.x = 135;
+	anq.y = 320;
+	layer.addChild(anq);;
+	var inputs=d["0"].input;
+	//开始答题
+	for(i in inputs){
+		if(inputs[i].answer==1)
+		{
+			rightQ = i;
+		}
+		ans[i]=new answers(inputs[i].val,parseInt(i)+1,inputs[i].answer);
+		ans[i].x = rCenterWidth(ans[i]);
+		ans[i].y = 360+anq.getHeight() + i*110;
+		layer.addChild(ans[i]);
+		ans[i].addEventListener(LMouseEvent.MOUSE_DOWN,function(){
+			if(ansOpen == true)
+			{
+				ansOpen = false;
+				var self = this;
+				tw.pause();
+				if(self.sp.answer==1)
+				{
+					$('#right')[0].currentTime = 0;
+					$('#right')[0].play();						 
+					self.sp.childList[1].childList["0"].color = '#00ff00';
+					setTimeout(function(){
+						layer.removeAllChild();
+						maxscore++;
+						++k
+						if(k==3)
+						{
+							if(maxscore==0)
+							{
+								sorry();
+							}else{
+								//获得机会次数
+								$.get('json/change.json',function(data){
+									pop(maxscore,data.change);
+								});
+							}
+							
+						}else{
+							qt(layer,k,data,true,tw);
+						}
+					},1000);
+					
+				}else{
+					$('#error')[0].currentTime = 0;
+					$('#error')[0].play();
+					self.sp.childList[1].childList["0"].color = '#ff3530';
+					ans[rightQ].childList[1].childList["0"].color = '#00ff00';					
+					setTimeout(function(){
+						layer.removeAllChild();
+						++k						
+						if(k==3)
+						{
+							if(maxscore==0)
+							{
+								sorry();
+							}else{
+								//获得机会次数
+								$.get('json/change.json',function(data){
+									pop(maxscore,data.change);
+								});
+							}
+						}else{
+							qt(layer,k,data,true,tw);
+						}
+					},1500);
+				}
+			}
+		});
+	}
 }
 function titles(num){
 	var str = "";
@@ -82,7 +192,7 @@ function titles(num){
 	wt.y = 26;
 	self.addChild(wt);
 }
-function answers(title,num){
+function answers(title,num,answer){
 	var str = "";
 	switch(num)
 	{
@@ -105,7 +215,7 @@ function answers(title,num){
 	self.addChild(self.bitmap);
 	self.wt = new setText(0,538,30,title,"#000000",false,'wd');
 	self.wt.x = 84+(442-self.wt.getWidth())/2;
-	
+	self.answer = answer;
 	self.addChild(self.wt);
 	self.wt.y = (self.bitmap.getHeight() - self.wt.getHeight())/2-8;
 }

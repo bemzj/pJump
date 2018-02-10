@@ -125,7 +125,7 @@ function homepage(lTime){
 			startGame.removeEventListener(LMouseEvent.MOUSE_DOWN);
 			homeLayer.remove();
 			homeLayer.die();
-			LTweenLite.pauseAll();
+			LTweenLite.removeAll();
 			showRule();
 		});
 		//步步高升
@@ -139,7 +139,7 @@ function homepage(lTime){
 			startGame.removeEventListener(LMouseEvent.MOUSE_DOWN);
 			homeLayer.remove();
 			homeLayer.die();
-			LTweenLite.pauseAll();
+			LTweenLite.removeAll();
 			sort();
 		});
 		//查看礼物
@@ -151,7 +151,7 @@ function homepage(lTime){
 		homeBtn02.addEventListener(LMouseEvent.MOUSE_DOWN,function(){
 			//开始游戏点击事件
 			startGame.removeEventListener(LMouseEvent.MOUSE_DOWN);
-			LTweenLite.pauseAll();
+			LTweenLite.removeAll();
 			homeLayer.remove();
 			homeLayer.die();
 			$.get('json/score.json',function(data){

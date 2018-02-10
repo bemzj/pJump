@@ -71,7 +71,7 @@ function rCenterHeight(target){
 	return (LGlobal.height-target.getHeight())/2;
 }
 //设置换行
-function setWrapText(x,y,size,text,color,weight,width,wrap,height,speed)
+function setWrapText(x,y,size,text,color,weight,width,wrap,height,font)
 {
 	/*
 	 * x为文字的横坐标
@@ -92,7 +92,7 @@ function setWrapText(x,y,size,text,color,weight,width,wrap,height,speed)
 	self.word.size = size;
 	self.word.setWordWrap(wrap,height);
 	self.word.width = width;
-	self.word.speed = speed;
+	self.word.font = font;
 	self.x = x;
 	self.y = y;
 	if(weight==true)
@@ -101,7 +101,4 @@ function setWrapText(x,y,size,text,color,weight,width,wrap,height,speed)
 	}
 	self.addChild(self.word);	
 }
-setWrapText.prototype.play = function(){
-	var self = this;
-	self.word.wind();
-}
+

@@ -1,7 +1,7 @@
 function sort(){
 	backLayer.removeAllChild();
 	backLayer.die();
-	LTweenLite.pauseAll();
+	LTweenLite.removeAll();
 	//排名
 	var sortLayer = new LSprite(); 
 	backLayer.addChild(sortLayer);
@@ -146,7 +146,7 @@ function sort(){
 	backhome.addEventListener(LMouseEvent.MOUSE_DOWN,function(){
 		sortLayer.die();
 		sortLayer.remove();
-		LTweenLite.pauseAll();
+		LTweenLite.removeAll();
 		backLayer.removeAllChild();
 		backLayer.die();
 		homepage();
