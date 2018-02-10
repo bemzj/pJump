@@ -124,6 +124,9 @@ function homepage(lTime){
 			//开始游戏点击事件
 			startGame.removeEventListener(LMouseEvent.MOUSE_DOWN);
 			homeLayer.remove();
+			homeLayer.die();
+			LTweenLite.pauseAll();
+			showRule();
 		});
 		//步步高升
 		var homeBtn01 = getButton(imgList['homeBtn01']);
@@ -135,8 +138,11 @@ function homepage(lTime){
 			//开始游戏点击事件
 			startGame.removeEventListener(LMouseEvent.MOUSE_DOWN);
 			homeLayer.remove();
+			homeLayer.die();
+			LTweenLite.pauseAll();
+			sort();
 		});
-		//兑换年货
+		//查看礼物
 		var homeBtn02 = getButton(imgList['homeBtn02']);
 		homeBtn02.x = 393;
 		homeBtn02.y = 989;
@@ -145,7 +151,13 @@ function homepage(lTime){
 		homeBtn02.addEventListener(LMouseEvent.MOUSE_DOWN,function(){
 			//开始游戏点击事件
 			startGame.removeEventListener(LMouseEvent.MOUSE_DOWN);
+			LTweenLite.pauseAll();
 			homeLayer.remove();
+			homeLayer.die();
+			$.get('json/score.json',function(data){
+				lookGift(data.score);
+			})
+			
 		});
 	},400);
 	//纸

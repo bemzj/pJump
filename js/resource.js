@@ -40,16 +40,30 @@ var gameImg = [
 	{path:url+'img/again.png',type:'img',name:'again'},//再玩一次
 	{path:url+'img/scoreBkg.png',type:'img',name:'scoreBkg'},//得分背景
 	{path:url+'img/a.png',type:'img',name:'a'},//答案背景
-	{path:url+'img/a1.png',type:'img',name:'a1'},//答案背景
 	{path:url+'img/b.png',type:'img',name:'b'},//答案背景
-	{path:url+'img/b1.png',type:'img',name:'b1'},//答案背景
 	{path:url+'img/c.png',type:'img',name:'c'},//答案背景
-	{path:url+'img/c1.png',type:'img',name:'c1'},//答案背景
 	{path:url+'img/d.png',type:'img',name:'d'},//答案背景
-	{path:url+'img/d1.png',type:'img',name:'d1'},//答案背景
 	{path:url+'img/questionBkg.jpg',type:'img',name:'questionBkg'},//问题背景
 	{path:url+'img/titleBkg.png',type:'img',name:'titleBkg'},//问题背景
+	{path:url+'img/gift.jpg',type:'img',name:'gift'},//查看礼物
+	{path:url+'img/fu1.png',type:'img',name:'fu1'},//福袋
+	{path:url+'img/fu2.png',type:'img',name:'fu2'},//福袋
+	{path:url+'img/fu3.png',type:'img',name:'fu3'},//福袋
+	{path:url+'img/message.png',type:'img',name:'message'},//信息
+	{path:url+'img/cry.png',type:'img',name:'cry'},//哭
+	{path:url+'img/mgBkg.jpg',type:'img',name:'mgBkg'},//信息背景
+	{path:url+'img/pRule.jpg',type:'img',name:'pRule'},//答题背景
+	{path:url+'img/topBkg.jpg',type:'img',name:'topBkg'},//排行版
+	{path:url+'img/f1.png',type:'img',name:'f1'},//排行版
+	{path:url+'img/f2.png',type:'img',name:'f2'},//排行版
+	{path:url+'img/f3.png',type:'img',name:'f3'},//排行版
+	{path:url+'img/topTitle.png',type:'img',name:'topTitle'},//排行版
 ];
 //全局变量
 var backLayer,imgList;
 var lLayer,wordText,step,loadLayer,stepNumber=0,stepWord=0,process=0;
+//微信头像
+var wxurl = 'img/wxhead.jpg';
+var wxname = "梓+";
+var wxsort = 27;
+var wxscore = 255;

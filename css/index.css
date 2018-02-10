@@ -2,6 +2,9 @@
 	padding: 0;
 	margin: 0;
 }
+body{
+	overflow: hidden;
+}
 @font-face {
     font-family: 'wd';
     src: url('../fonts/wending.TTF');
@@ -13,4 +16,79 @@
   width: 32px;
   height: 32px;
   z-index: 1000;
+}
+#mg{
+	border: 0;
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+}
+#sort{
+	position: fixed;
+	width: 65.2%;
+	height: 43%;
+	left: 17.4%;
+	top: 41.1%;
+	z-index: 999;
+	overflow: hidden;
+}
+.sort{
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+}
+table{
+	width: 100%;
+}
+tr td{
+	font-size: 0.2rem;
+	line-height: 0.8rem;
+	border-bottom: 2px dashed #b8a5a8;
+	height: 0.8rem;
+}
+tr td:nth-child(1){
+	width: 10%;
+	text-align: center;
+}
+tr td:nth-child(2){
+	width: 20%;
+	text-align: center;	
+}
+tr td:nth-child(3){
+	width: 40%;
+	text-align: center;	
+}
+tr td:nth-child(4){
+	width: 30%;
+	text-align: right;	
+}
+tr td:nth-child(2).headOut{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	display: -webkit-flex;
+	-webkit-align-items: center;
+	-webkit-justify-content: center;
+	-webkit-flex-direction: column;	
+}
+tr td:nth-child(2) .headBox{
+	width: 0.6rem;
+	height: 0.6rem;
+	margin: 0 auto;
+	border-radius: 50%;
+	overflow: hidden;
+}
+tr td:nth-child(2) .headBox img{
+	width: 100%;
+	margin: 0 auto;
+}
+tr:nth-last-child(1) td{
+	border: 0px;
 }

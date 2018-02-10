@@ -1,0 +1,86 @@
+#message{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	display: -webkit-flex;
+	-webkit-align-items: center;
+	-webkit-justify-content: center;
+	-webkit-flex-direction: column;	
+	background: url(../img/mgBkg.jpg) no-repeat left top;
+	background-size: cover;
+}
+body{
+	background-color: transparent;
+}
+.message{
+	width: 95.47%;
+	margin-left: 4.53%;
+	position: relative;
+}
+.message>img{
+	display: block;
+	width: 100%;
+}
+.input{
+	position: absolute;
+	top: 39.25%;
+	left: 18.72%;
+	height: 8%;
+	width: 58.38%;
+}
+.input input{
+	display: block;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	font-size: 0.26rem;
+	color: black;
+}
+input::-moz-placeholder{
+	color: #b3b3b3;
+	font-size: 0.26rem;
+}
+input::-webkit-input-placeholder{
+	color: #b3b3b3;
+	font-size: 0.26rem;
+}
+input::-ms-input-placeholder{
+	color: #b3b3b3;
+	font-size: 0.26rem;
+}
+.address{
+	top:51.5%;
+}
+.phone{
+	top:64.4%;
+}
+.submit{
+	position: absolute;
+	left: 24.86%;
+	top: 83.72%;
+	width: 46%;
+	height: 10.32%;
+	opacity: 0;
+}
+.submit button{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.close{
+	position: absolute;
+	right: 10.055%;
+	top: 00%;
+	width: 7.68%;
+	height: 6.31%;
+	opacity: 0;
+}
+
+.close button{
+	display: block;
+	width: 100%;
+	height: 100%;
+}

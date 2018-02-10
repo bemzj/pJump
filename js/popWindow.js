@@ -9,6 +9,11 @@ function noChange(){
 	nochange.y = rCenterHeight(nochange);
 	nochange.x = rCenterWidth(nochange);
 	noLayer.addChild(nochange);
+	//哭
+	var cry = getBitmap(imgList['cry']);
+	cry.y = 315;
+	cry.x = rCenterWidth(cry);
+	noLayer.addChild(cry);
 	//文字1
 	var wordText1 = new setText(0,538,30,"哎呀~","#ffffff",false,'wd');
 	wordText1.x = rCenterWidth(wordText1);
@@ -29,6 +34,7 @@ function noChange(){
 	noLayer.addEventListener(LMouseEvent.MOUSE_DOWN,function(){
 		noLayer.die();
 		noLayer.remove();
+		LTweenLite.pauseAll();
 		backLayer.removeAllChild();
 		backLayer.die();
 		homepage();
@@ -126,10 +132,26 @@ function score(s){
 	sLayer.addChild(again);
 	bigAndSmall(again,2,2,1,0.02,0,true);
 	again.addEventListener(LMouseEvent.MOUSE_DOWN,function(){
-		sLayer.die();
-		sLayer.remove();
-		backLayer.removeAllChild();
-		backLayer.die();
+		$.get('json/number.json',function(data){
+			//没有填写信息
+			if(data.number==1)
+			{
+				$('#mg').show();
+			}else if(data.number==2){
+				//答题页面
+				sLayer.die();
+				sLayer.remove();
+				LTweenLite.pauseAll();
+				gameOver();
+			}else{
+				//没有机会
+				sLayer.die();
+				sLayer.remove();
+				LTweenLite.pauseAll();
+				noChange();
+			}
+		})
+		
 	});
 	//分享
 	var shareFriend = getButton(imgList['shareFriend']);

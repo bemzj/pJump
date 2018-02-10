@@ -2,6 +2,7 @@
 function showRule(){
 	backLayer.removeAllChild();
 	backLayer.die();
+	LTweenLite.pauseAll();
 	//规则层
 	var rLayer = new LSprite(); 
 	backLayer.addChild(rLayer);
@@ -43,6 +44,7 @@ function showRule(){
 	rLayer.addChild(start);
 	bigAndSmall(start,2,2,1,0.02,0,true);
 	start.addEventListener(LMouseEvent.MOUSE_DOWN,function(){
+		LTweenLite.pauseAll();
 		//开始游戏点击事件
 		start.removeEventListener(LMouseEvent.MOUSE_DOWN);
 		rLayer.remove();

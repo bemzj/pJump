@@ -16,6 +16,8 @@ function startGame(result){
 	{
 		//情况回收
 		backLayer.removeEventListener(LEvent.ENTER_FRAME);
+		LTweenLite.pauseAll();
+		loadLayer.die();
 		wordText = null;
 		step = null;
 		loadLayer = null;
