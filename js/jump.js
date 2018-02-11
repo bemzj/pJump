@@ -317,7 +317,7 @@ function jump(){
 						player.change(4);
 						var jt = LTweenLite.to(player,0.5,{ease:LEasing.None.easeIn,coordinate:jarray,onComplete:function(){
 							player.change(1);
-							if(sj>1||sj<8)
+							if(sj>14||sj<8)
 							{
 								score(scc);
 								player.jopen = false;
