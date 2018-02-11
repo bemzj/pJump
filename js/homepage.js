@@ -54,7 +54,10 @@ function homepage(lTime){
 		redBag3.y = 658;
 		redBag3.alpha = 1;
 	}});
-	
+	var sky = getBitmap(imgList['sky']);
+	sky.x = 0;
+	sky.y = LGlobal.height - sky.getHeight();
+	homeLayer.addChild(sky);
 	//星星
 	var starTime = 0.5;
 	var star1 = getBitmap(imgList['bigStar']);
