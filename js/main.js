@@ -27,5 +27,6 @@ function startGame(result){
 		lLayer.remove();
 		homepage(10);
 //		problem();
+		
 	}
 }

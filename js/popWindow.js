@@ -78,6 +78,7 @@ function gameOver(){
 		LTweenLite.removeAll();
 		backLayer.removeAllChild();
 		backLayer.die();
+		//
 		problemRules();
 	});
 	//邀请

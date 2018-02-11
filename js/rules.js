@@ -58,7 +58,7 @@ function showRule(){
 				rLayer.remove();
 				backLayer.removeAllChild();
 				backLayer.die();
-				score(100);
+				jump();
 			}else{
 				//没有机会
 				noChange();

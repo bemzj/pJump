@@ -58,6 +58,23 @@ var gameImg = [
 	{path:url+'img/f2.png',type:'img',name:'f2'},//排行版
 	{path:url+'img/f3.png',type:'img',name:'f3'},//排行版
 	{path:url+'img/topTitle.png',type:'img',name:'topTitle'},//排行版
+	{path:url+'img/jumpBottom.png',type:'img',name:'jumpBottom'},//跳一跳下部
+	{path:url+'img/jumpback.jpg',type:'img',name:'jumpback'},//跳一跳背景
+	{path:url+'img/person01.png',type:'img',name:'person01'},//人
+	{path:url+'img/person02.png',type:'img',name:'person02'},//人
+	{path:url+'img/person03.png',type:'img',name:'person03'},//人
+	{path:url+'img/person04.png',type:'img',name:'person04'},//人
+	{path:url+'img/pro00.png',type:'img',name:'pro00'},//产品00
+	{path:url+'img/pro01.png',type:'img',name:'pro01'},//产品01
+	{path:url+'img/pro02.png',type:'img',name:'pro02'},//产品02
+	{path:url+'img/pro03.png',type:'img',name:'pro03'},//产品03
+	{path:url+'img/pro04.png',type:'img',name:'pro04'},//产品04
+	{path:url+'img/pro05.png',type:'img',name:'pro05'},//产品05
+	{path:url+'img/pro06.png',type:'img',name:'pro06'},//产品06
+	{path:url+'img/pro07.png',type:'img',name:'pro07'},//产品07
+	{path:url+'img/pro08.png',type:'img',name:'pro08'},//产品08
+	{path:url+'img/pro09.png',type:'img',name:'pro09'},//产品09
+	{path:url+'img/score.png',type:'img',name:'score'},//分数
 ];
 //全局变量
 var backLayer,imgList;
@@ -68,3 +85,5 @@ var wxurl = 'img/wxhead.jpg';
 var wxname = "梓+";
 var wxsort = 27;
 var wxscore = 255;
+//
+var openTouch = false;
