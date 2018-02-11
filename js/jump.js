@@ -196,7 +196,7 @@ function jump(){
 						jpy = jumpy[now][4];
 						jpl = jumpl[now][4];
 					}
-					sj = 0;
+					
 					now++;
 					jTween.pause();
 					LTweenLite.to(player,0.2,{scaleY:1,y:y,onComplete:function(){
@@ -219,8 +219,12 @@ function jump(){
 							player.change(3);
 							if(sj>14||sj<8)
 							{
-								score(scc);
-								player.jopen = false;
+								setTimeout(function(){
+									score(scc);
+									player.jopen = false;
+									openTouch = false;
+								},1000);
+								sj = 0;
 								//分数提交
 								//$.post
 							}else{
@@ -242,6 +246,7 @@ function jump(){
 									}else{
 										scc++;
 									}
+									sj = 0;
 								sc.childList["0"].text = scc;
 								var sy = swiper.y + 241.4;
 								LTweenLite.to(swiper,1.0,{y:sy,onComplete:function(){
@@ -297,7 +302,7 @@ function jump(){
 						jpy = jumpy[now][4];
 						jpl = jumpl[now][4];
 					}
-					sj = 0;	
+					
 					now++;
 					jTween.pause();
 					LTweenLite.to(player,0.2,{scaleY:1,y:y,onComplete:function(){
@@ -319,8 +324,11 @@ function jump(){
 							player.change(1);
 							if(sj>14||sj<8)
 							{
-								score(scc);
-								player.jopen = false;
+								setTimeout(function(){
+									score(scc);
+									player.jopen = false;
+									openTouch = false;
+								},1000);
 								//分数提交
 								//$.post
 							}else{
@@ -343,6 +351,7 @@ function jump(){
 								}else{
 									scc++;
 								}
+								sj = 0;	
 								sc.childList["0"].text = scc;
 								LTweenLite.to(swiper,1.0,{y:sy,onComplete:function(){
 									

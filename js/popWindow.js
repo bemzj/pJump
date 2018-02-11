@@ -123,11 +123,11 @@ function score(s){
 	wordText.x = wx;
 	wordText.y = wy;
 	sLayer.addChild(wordText);	
-	
 	var wordText1 = new setText(0,538,42,"分","#fcecd5",false,'wd');
-	wordText1.x = wx+5+wordText.getWidth();
-	wordText1.y = wy+42;
-	sLayer.addChild(wordText1);
+		wordText1.x =125+wordText.getWidth();
+		wordText1.y = wy+42;
+		sLayer.addChild(wordText1);
+	
 	//再玩一次
 	var again = getButton(imgList['again']);
 	again.x = 66;
