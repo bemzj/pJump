@@ -220,6 +220,7 @@ function jump(){
 							if(sj>14||sj<8)
 							{
 								score(scc);
+								player.jopen = false;
 								//分数提交
 								//$.post
 							}else{
@@ -319,6 +320,7 @@ function jump(){
 							if(sj>1||sj<8)
 							{
 								score(scc);
+								player.jopen = false;
 								//分数提交
 								//$.post
 							}else{
